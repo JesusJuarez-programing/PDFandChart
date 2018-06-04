@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
+import { FileOpener } from '@ionic-native/file-opener';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'page-about',
@@ -41,10 +46,64 @@ export class AboutPage {
   resultado: any;
   tamano: number;
 
-  constructor(public navCtrl: NavController) {
+  letterObj = {
+    from: 'Simon',
+    to: 'Paul',
+    text: 'Creating a PDF file'
+  }
+
+  pdfObj = null;
+
+  constructor(public navCtrl: NavController, private plt: Platform) {
 
   }
   
+  createPdf(){
+    var docDefinition = {
+      content: [
+        {text: 'Reminder', style: 'header'},
+        {text: new Date().toTimeString(), alignment: 'right'},
+
+        {text: 'From', style: 'subheader'},
+        {text: this.letterObj.from},
+
+        {text : ''},
+
+        {text: 'To', style: 'subheader'},
+        this.letterObj.to,
+
+        {text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20]},
+
+        {
+          ul: [
+            'Bacon',
+            'Rips',
+            'BBQ'
+          ]
+        }
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+           bold: true,
+        },
+        story: {
+          italic: true,
+          alignment: 'center',
+          width: '50%',
+        }
+      }
+    }
+
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+    this.pdfObj.download();
+  }
+
+  
+
+
+
+
   doReport(){
     if(this.title != null && this.for != null && this.by != null && this.title != null && this.problem != null &&
       this.object != null && this.research != null && this.information != null && this.instrumentation != null &&

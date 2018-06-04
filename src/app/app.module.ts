@@ -13,7 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ChartsModule } from 'ng2-charts';
 
-
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { ChartsModule } from 'ng2-charts';
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    FileOpener,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
