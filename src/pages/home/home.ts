@@ -6,14 +6,27 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  nombres: string [] = ['Polo', 'Julio', 'Verne'];
+  valores: number [] = [500, 600, 700];
+
+  paises: string [] = ['México', 'USA', 'España', 'Cataluña'];
+  valor: number [] = [300, 400, 50, 2];
+
+  empresas: string [] = ['SpaceX', 'Tesla'];
+  val: number [] = [10, 10];
 
   constructor(public navCtrl: NavController) {
 
   }
- // Pie
- public pieChartLabels:string[] = ['Hola', 'Marco', 'Polo'];
- public pieChartData:number[] = [300, 500, 100];
- public pieChartType:string = 'pie';
+
+
+// Estatico
+public doughnutChartLabels:string[] = this.nombres;
+public doughnutChartData:number[] = this.valores;
+public doughnutChartType:string = 'pie';
+
+
+// Dinamico
 
 
 }
