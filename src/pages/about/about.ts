@@ -49,7 +49,8 @@ export class AboutPage {
   letterObj = {
     from: 'Simon',
     to: 'Paul',
-    text: 'Creating a PDF file'
+    text: 'Creating a PDF fileCreating a PDF fileCreating a PDF fileCreating a PDF fileCreating a PDF fileCreating a PDF file' +
+          'Creating a PDF fileCreating a PDF fileCreating a PDF fileCreating a PDF fileCreating a PDF fileCreating a PDF fileCreating a PDF file'
   }
 
   pdfObj = null;
@@ -61,36 +62,186 @@ export class AboutPage {
   createPdf(){
     var docDefinition = {
       content: [
-        {text: 'Reminder', style: 'header'},
-        {text: new Date().toTimeString(), alignment: 'right'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\nInvestigación de mercado ' + this.letterObj.from, style: 'header'},
 
-        {text: 'From', style: 'subheader'},
-        {text: this.letterObj.from},
+        {text: '\n\n\nPreparado para: '+ this.letterObj.from, style: 'subheader'},
 
-        {text : ''},
+        {text: 'Preparado por: ' + this.letterObj.to, style: 'subheader'},
 
-        {text: 'To', style: 'subheader'},
-        this.letterObj.to,
+        {text: '\nVictoria de Durango, ' + new Date().toDateString(), style: 'subheader'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCONTEXTO', style: 'subtitulo'},
 
-        {text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20]},
+        {text: 'Problema', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+
+        {text: '\n\nObjetivo', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+
+        {text: '\n\n\nMETODOLOGÍA', style: 'subtitulo'},
+
+        {text: 'Diseño de Investigación', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+
+        {text: '\n\nFuentes de Información', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+
+        {text: '\n\nDiseño de Instrumentación', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOperacionalización de variables', style: 'subtitulo'},
 
         {
-          ul: [
-            'Bacon',
-            'Rips',
-            'BBQ'
-          ]
-        }
+          style: 'tableExample',
+          table: {
+            widths: [100, '*', 200, '*'],
+            body: [
+              ///////////////////////////////Headers///////////////////////////////////////////////
+              [{text: 'Variable', style: 'headers'}, 
+              {text: 'Dimensión', style: 'headers'}, 
+              {text: 'Indicadores', style: 'headers'}, 
+              {text: 'No. de Ítems', style: 'headers'}],
+              ///////////////////////////////////Rows///////////////////
+              ['Ejemplo', 
+              'Hola',
+              'Marco',
+              'Polo'],
+              ['Ejemplo', 
+              'Hola',
+              'Marco',
+              'Polo'],
+              ['Ejemplo', 
+              'Hola',
+              'Marco',
+              'Polo']
+            ]
+          }
+        },
+
+        {text: '' + this.letterObj.text, style: 'text'},
+
+        {text: '\n\nPoblación y muestra', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDIAGNÓSTICO', style: 'subtitulo'},
+
+        {text: 'Tabulación y gráficas de datos', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nANÁLISIS GENERAL', style: 'subtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nANÁLISIS CRUZADO', style: 'subtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+        
+        {text: '\n\nInteraciones entre consumo, gusto y frecuencia', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCONCLUSIONES Y RECOMENDACIONES', style: 'subtitulo'},
+
+        {text: '\n\nConclusiones y recomendaciones', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo A', style: 'subtitulo'},
+
+        {text: '\n\nInstrumento de recolección de datos', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo B', style: 'subtitulo'},
+
+        {text: '\n\nAGEBS de aplicación', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo C', style: 'subtitulo'},
+
+        {text: '\n\nAplicaciones de encuestas', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo D', style: 'subtitulo'},
+
+        {text: '\n\nFotos de los encuestadores', style: 'subsubtitulo'},
+
+        {text: '' + this.letterObj.text, style: 'text'},  
+
+
+
+
       ],
       styles: {
         header: {
-          fontSize: 18,
+          fontSize: 19,
            bold: true,
+           alignment: 'justify',
+           calibri: true
         },
-        story: {
-          italic: true,
-          alignment: 'center',
-          width: '50%',
+        headers: {
+          calibri: true, 
+          color: 'black',
+          alignment: 'center', 
+          bold: true
+        },
+        tableExample: {
+          margin: [0, 5, 0, 15]
+        },
+        subtitulo: {
+          fontSize: 13,
+           bold: true,
+           alignment: 'center',
+           calibri: true
+        },
+        subsubtitulo: {
+          fontSize: 13,
+           bold: true,
+           alignment: 'justify',
+           calibri: true
+        },
+        text: {
+           fontSize: 12,
+           alignment: 'justify',
+           calibri: true
         }
       }
     }
