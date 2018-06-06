@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
-import { FileOpener } from '@ionic-native/file-opener';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 
@@ -32,6 +31,10 @@ export class AboutPage {
   dimension: any;
   indicator: any;
   item: any;
+  variables: any [] = [];
+  dimensiones: any [] = [];
+  indicadores: any [] = [];
+  items: any [] = [];
   problem: any;
   object: any;
   research: any;
@@ -45,6 +48,16 @@ export class AboutPage {
   showVariable: any [] = [];
   resultado: any;
   tamano: number;
+  tableVariable: any;
+  inicio: any;
+  final: any;
+  nombre: any;
+  horario: any;
+  inicios: any [] = [];
+  finales: any [] = [];
+  nombres: any [] = [];
+  horarios: any [] = [];
+  showVariableD: any [] = [];
 
   letterObj = {
     from: 'Simon',
@@ -55,7 +68,7 @@ export class AboutPage {
 
   pdfObj = null;
 
-  constructor(public navCtrl: NavController, private plt: Platform) {
+  constructor(public navCtrl: NavController) {
 
   }
   
@@ -65,11 +78,11 @@ export class AboutPage {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\nInvestigación de mercado ' + this.letterObj.from, style: 'header'},
+        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\nInvestigación de mercado ' + this.title, style: 'header'},
 
-        {text: '\n\n\nPreparado para: '+ this.letterObj.from, style: 'subheader'},
+        {text: '\n\n\nPreparado para: '+ this.for, style: 'subheader'},
 
-        {text: 'Preparado por: ' + this.letterObj.to, style: 'subheader'},
+        {text: 'Preparado por: ' + this.by, style: 'subheader'},
 
         {text: '\nVictoria de Durango, ' + new Date().toDateString(), style: 'subheader'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,25 +92,25 @@ export class AboutPage {
 
         {text: 'Problema', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.problem, style: 'text'},
 
         {text: '\n\nObjetivo', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.object, style: 'text'},
 
         {text: '\n\n\nMETODOLOGÍA', style: 'subtitulo'},
 
         {text: 'Diseño de Investigación', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.research, style: 'text'},
 
         {text: '\n\nFuentes de Información', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.information, style: 'text'},
 
         {text: '\n\nDiseño de Instrumentación', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.instrumentation, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,27 +127,19 @@ export class AboutPage {
               {text: 'Indicadores', style: 'headers'}, 
               {text: 'No. de Ítems', style: 'headers'}],
               ///////////////////////////////////Rows///////////////////
-              ['Ejemplo', 
-              'Hola',
-              'Marco',
-              'Polo'],
-              ['Ejemplo', 
-              'Hola',
-              'Marco',
-              'Polo'],
-              ['Ejemplo', 
-              'Hola',
-              'Marco',
-              'Polo']
+              [this.variables, 
+              this.dimensiones,
+              this.indicadores,
+              this.items]
             ]
           }
         },
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.tableVariable, style: 'text'},
 
         {text: '\n\nPoblación y muestra', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.population, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +147,7 @@ export class AboutPage {
 
         {text: 'Tabulación y gráficas de datos', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.graphicc, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,17 +159,13 @@ export class AboutPage {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
         {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nANÁLISIS GENERAL', style: 'subtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.analysisG, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
         {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nANÁLISIS CRUZADO', style: 'subtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
-        
-        {text: '\n\nInteraciones entre consumo, gusto y frecuencia', style: 'subsubtitulo'},
-
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.analysisC, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,7 +173,7 @@ export class AboutPage {
 
         {text: '\n\nConclusiones y recomendaciones', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.conclusion, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -180,7 +181,7 @@ export class AboutPage {
 
         {text: '\n\nInstrumento de recolección de datos', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.annexA, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,7 +189,7 @@ export class AboutPage {
 
         {text: '\n\nAGEBS de aplicación', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.annexB, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -196,7 +197,7 @@ export class AboutPage {
 
         {text: '\n\nAplicaciones de encuestas', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},
+        {text: '' + this.annexC, style: 'text'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +205,25 @@ export class AboutPage {
 
         {text: '\n\nFotos de los encuestadores', style: 'subsubtitulo'},
 
-        {text: '' + this.letterObj.text, style: 'text'},  
+        {text: '' + this.annexD, style: 'text'},  
+        {
+          style: 'tableExample',
+          table: {
+            widths: [100, '*', 200, '*'],
+            body: [
+              ///////////////////////////////Headers///////////////////////////////////////////////
+              [{text: '', style: 'headers'}, 
+              {text: 'Inicio', style: 'headers'}, 
+              {text: 'Final', style: 'headers'}, 
+              {text: 'Horario de aplicación. (Lunes a viernes).', style: 'headers'}],
+              ///////////////////////////////////Rows///////////////////
+              [this.nombres, 
+              this.inicios,
+              this.finales,
+              this.horarios]
+            ]
+          }
+        },
 
 
 
@@ -256,11 +275,12 @@ export class AboutPage {
 
 
   doReport(){
+    //this.createPdf();
     if(this.title != null && this.for != null && this.by != null && this.title != null && this.problem != null &&
       this.object != null && this.research != null && this.information != null && this.instrumentation != null &&
       this.population != null && this.analysisC != null && this.analysisG != null && this.conclusion != null
       && this.graphicc != null){
-        console.log("Hola");
+        this.createPdf();
       }
     else{
       console.log("Rellena los campos solicitados.")
@@ -271,10 +291,20 @@ export class AboutPage {
   addAskOption(){
     if(this.variable != null && this.dimension != null && this.indicator != null && this.item != null){
     this.showVariable.push(this.variable);
-    this.operacion.push(this.variable);
-    this.operacion.push(this.dimension);
-    this.operacion.push(this.indicator);
-    this.operacion.push(this.item);
+    this.variables.push(this.variable);
+    this.dimensiones.push(this.dimension);
+    this.indicadores.push(this.indicator);
+    this.items.push(this.item);
+    }
+  }
+
+  addAnnexD(){
+    if(this.nombre != null && this.inicio != null && this.final != null && this.horario != null){
+    this.showVariableD.push(this.nombre);
+    this.nombres.push(this.nombre);
+    this.inicios.push(this.inicio);
+    this.finales.push(this.final);
+    this.horarios.push(this.horario);
     }
   }
 

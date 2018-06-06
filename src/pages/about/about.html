@@ -1,253 +1,228 @@
 <ion-content class="login-content" padding>
-  <ion-item>
-    <ion-label stacked>From</ion-label>
-    <ion-input [(ngModel)]="letterObj.from"></ion-input>
-  </ion-item>
+    <div class="login-box">
+        <ion-row>
+            <ion-col>
+                <ion-list inset>
 
-  <ion-item>
-      <ion-label stacked>To</ion-label>
-      <ion-input [(ngModel)]="letterObj.to"></ion-input>
-    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" [(ngModel)]="title" placeholder="Titulo:" name="title"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" [(ngModel)]="for" placeholder="Preparado para:" name="for"></ion-input>
+                    </ion-item>
 
-    <ion-item>
-        <ion-label stacked>Text</ion-label>
-        <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
-      </ion-item>
+                    <ion-item>
+                        <ion-input type="text" [(ngModel)]="by" placeholder="Preparado por:" name="by"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <h2>Contexto</h2>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="problem" placeholder="Problema" name="problem"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="object" placeholder="Objetivo" name="object"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <h2>Metodología</h2>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="research" placeholder="Diseño de investigación" name="research"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="information" placeholder="Fuentes de información" name="information"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="instrumentation" placeholder="Diseño de instrumentación" name="instrumentation"></ion-textarea>
+                    </ion-item>
 
-      <button ion-button full (click)="createPdf()">Create PDF</button>
-      
-    <!-- <div class="login-box">
-
-            
-                <ion-row>
-                    <ion-col>
-                        <ion-list inset>
-
-                            <ion-item>
-                                <ion-input type="text" [(ngModel)]="title" placeholder="Titulo:" name="title"></ion-input>
-                            </ion-item>
-                            <ion-item>
-                                <ion-input type="text" [(ngModel)]="for" placeholder="Preparado para:" name="for"></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                                <ion-input type="text" [(ngModel)]="by" placeholder="Preparado por:" name="by"></ion-input>
-                            </ion-item>
-                            <ion-item>
-                              <h2>Contexto</h2>
-                          </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="problem" placeholder="Problema" name="problem"></ion-textarea>
-                            </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="object" placeholder="Objetivo" name="object"></ion-textarea>
-                            </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="research" placeholder="Diseño de investigación" name="research"></ion-textarea>
-                            </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="information" placeholder="Fuentes de información" name="information"></ion-textarea>
-                            </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="instrumentation" placeholder="Diseño de instrumentación" name="instrumentation"></ion-textarea>
-                            </ion-item>
-
-                            <ion-item>
-                                <h2>Operacionalización de variables</h2>
-                            </ion-item>
-                            <ion-item>
-                                <ion-input type="text" [(ngModel)]="variable" name="variable" placeholder="Variable"></ion-input>
-                                <ion-input type="text" [(ngModel)]="dimension" name="dimension" placeholder="Dimensión"></ion-input>
-                                <ion-input type="text" [(ngModel)]="indicator" name="indicator" placeholder="Indicador"></ion-input>
-                                <ion-input type="number" [(ngModel)]="item" name="item" placeholder="Número de Item"></ion-input>
-                            </ion-item>
-                            <ion-list>
-                                <ion-grid>
-                                  <ion-row>
-                                    <ion-col>
-                                      <div class="botones">
+                    <ion-item>
+                        <h2>Operacionalización de variables</h2>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" [(ngModel)]="variable" name="variable" placeholder="Variable"></ion-input>
+                        <ion-input type="text" [(ngModel)]="dimension" name="dimension" placeholder="Dimensión"></ion-input>
+                        <ion-input type="text" [(ngModel)]="indicator" name="indicator" placeholder="Indicador"></ion-input>
+                        <ion-input type="number" [(ngModel)]="item" name="item" placeholder="Número de Item"></ion-input>
+                    </ion-item>
+                    <ion-list>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col>
+                                    <div class="botones">
                                         <ion-icon name="add" (click)="addAskOption()" item-end></ion-icon>
-                        
-                                      </div>
-                                    </ion-col>
-                                  </ion-row>
-                                </ion-grid>
-                        
-                                <ion-item>
-                                  <ion-list padding *ngFor="let num of showVariable">
-                                   
-                                      <ion-label>{{num}}</ion-label>
-                                    
-                                  </ion-list>
-                                </ion-item>
-                      
+
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+                        <ion-item>
+                            <ion-list padding *ngFor="let num of showVariable">
+
+                                <ion-label>{{num}}</ion-label>
+
                             </ion-list>
+                        </ion-item>
 
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="population" placeholder="Población y muestra" name="population"></ion-textarea>
-                            </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="graphicc" placeholder="Tabulación y gráficas de datos" name="graphicc"></ion-textarea>
-                            </ion-item>
+                    </ion-list>
 
-                            <ion-list>   
-                                <ion-textarea  type="text" [(ngModel)]="answer" required placeholder="Ingrese el análisis de cada una de las graficas ({{tamano}})."></ion-textarea>
-                                <ion-grid>
-                                  <ion-row>
-                                    <ion-col>
-                                      <div class="botones">
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="tableVariable" placeholder="Análisis de la tabla" name="tableVariable"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="population" placeholder="Población y muestra" name="population"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="graphicc" placeholder="Tabulación y gráficas de datos" name="graphicc"></ion-textarea>
+                    </ion-item>
+
+                    <ion-list>
+                        <ion-textarea type="text" [(ngModel)]="answer" required placeholder="Ingrese el análisis de cada una de las graficas ({{tamano}})."></ion-textarea>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col>
+                                    <div class="botones">
                                         <ion-icon name="add" (click)="addGraphic()" item-end></ion-icon>
-                        
-                                      </div>
-                                    </ion-col>
-                                    <ion-col>
-                                      <div class="botones">
+
+                                    </div>
+                                </ion-col>
+                                <ion-col>
+                                    <div class="botones">
                                         <ion-icon name="trash" (click)="deleteGraphic()" item-end></ion-icon>
-                                      </div>
-                                    </ion-col>
-                        
-                                  </ion-row>
-                                </ion-grid>
-                        
+                                    </div>
+                                </ion-col>
+
+                            </ion-row>
+                        </ion-grid>
+
+                        <ion-item>
+                            <ion-list padding *ngFor="let num of graphic">
                                 <ion-item>
-                                  <ion-list padding *ngFor="let num of graphic">
-                                    <ion-item>
-                                      <ion-label>{{num}}</ion-label>
-                                    </ion-item>
-                                  </ion-list>
+                                    <ion-label>{{num}}</ion-label>
                                 </ion-item>
-                      
                             </ion-list>
-
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="analysisG" placeholder="Análisis general" name="analysisG"></ion-textarea>
-                            </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="analysisC" placeholder="Análisis cruzado" name="analysisC"></ion-textarea>
-                            </ion-item>
-                            <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="conclusion" placeholder="Conclusiones y recomendaciones" name="conclusion"></ion-textarea>
-                            </ion-item>
-
-
-                            <ion-item>
-                              <h2>Anexo A</h2>
-                          </ion-item>
-                            <ion-list>   
-                              <ion-input  type="text" [(ngModel)]="answerannexA" required placeholder="Ingrese una descripción"></ion-input>
-                              <ion-grid>
-                                <ion-row>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="add" (click)="addA()" item-end></ion-icon>
-                      
-                                    </div>
-                                  </ion-col>
-                                  
-                                </ion-row>
-                              </ion-grid>
-                      
-                              <ion-item>
-                                <ion-list padding *ngFor="let num of annexA">
-                                  <ion-item>
-                                    <ion-label>{{num}}</ion-label>
-                                  </ion-item>
-                                </ion-list>
-                              </ion-item>
-                    
-                          </ion-list>
-                            
-                          <ion-item>
-                            <h2>Anexo B</h2>
                         </ion-item>
-                            <ion-list>   
-                              <ion-input  type="text" [(ngModel)]="answerannexB" required placeholder="Ingrese una descripción"></ion-input>
-                              <ion-grid>
-                                <ion-row>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="add" (click)="addB()" item-end></ion-icon>
-                      
-                                    </div>
-                                  </ion-col>
-                                  
-                                </ion-row>
-                              </ion-grid>
-                      
-                              <ion-item>
-                                <ion-list padding *ngFor="let num of annexB">
-                                  <ion-item>
-                                    <ion-label>{{num}}</ion-label>
-                                  </ion-item>
-                                </ion-list>
-                              </ion-item>
-                    
-                          </ion-list>
 
-                          <ion-item>
-                            <h2>Anexo C</h2>
+                    </ion-list>
+
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="analysisG" placeholder="Análisis general" name="analysisG"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="analysisC" placeholder="Análisis cruzado" name="analysisC"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-textarea type="text" [(ngModel)]="conclusion" placeholder="Conclusiones y recomendaciones" name="conclusion"></ion-textarea>
+                    </ion-item>
+
+
+                    <ion-item>
+                        <h2>Anexo A</h2>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label >Ingrese una descripción</ion-label>
+                        <ion-input type="text"  [(ngModel)]="answerannexA"></ion-input>
+                        <div class="buttons" item-right>
+                            <ion-icon name="add" (click)="addA()" item-end></ion-icon>
+                        </div>
+                      </ion-item>
+                    <ion-list>
+                        <ion-item>
+                            <ion-list padding *ngFor="let num of annexA">
+                                <ion-item>
+                                    <ion-label>{{num}}</ion-label>
+                                </ion-item>
+                            </ion-list>
                         </ion-item>
-                            <ion-list>   
-                              <ion-input  type="text" [(ngModel)]="answerannexC" required placeholder="Ingrese una descripción"></ion-input>
-                              <ion-grid>
-                                <ion-row>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="add" (click)="addC()" item-end></ion-icon>
-                      
-                                    </div>
-                                  </ion-col>
-                                  
-                                </ion-row>
-                              </ion-grid>
-                      
-                              <ion-item>
-                                <ion-list padding *ngFor="let num of annexC">
-                                  <ion-item>
+
+                    </ion-list>
+
+                    <ion-item>
+                        <h2>Anexo B</h2>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label >Ingrese una descripción</ion-label>
+                        <ion-input type="text"  [(ngModel)]="answerannexB"></ion-input>
+                        <div class="buttons" item-right>
+                            <ion-icon name="add" (click)="addB()" item-end></ion-icon>
+                        </div>
+                      </ion-item>
+                    <ion-list>
+                        <ion-item>
+                            <ion-list padding *ngFor="let num of annexB">
+                                <ion-item>
                                     <ion-label>{{num}}</ion-label>
-                                  </ion-item>
-                                </ion-list>
-                              </ion-item>
-                    
-                          </ion-list>
-                           
-                           
-                          <ion-item>
-                            <h2>Anexo D</h2>
-                          </ion-item>
-                            <ion-list>   
-                              <ion-input  type="text" [(ngModel)]="answerannexD" required placeholder="Ingrese una descripción"></ion-input>
-                              <ion-grid>
-                                <ion-row>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="add" (click)="addD()" item-end></ion-icon>
-                      
-                                    </div>
-                                  </ion-col>
-                                  
-                                </ion-row>
-                              </ion-grid>
-                      
-                              <ion-item>
-                                <ion-list padding *ngFor="let num of annexD">
-                                  <ion-item>
+                                </ion-item>
+                            </ion-list>
+                        </ion-item>
+
+                    </ion-list>
+
+                    <ion-item>
+                        <h2>Anexo C</h2>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label >Ingrese una descripción</ion-label>
+                        <ion-input type="text"  [(ngModel)]="answerannexC"></ion-input>
+                        <div class="buttons" item-right>
+                            <ion-icon name="add" (click)="addC()" item-end></ion-icon>
+                        </div>
+                      </ion-item>
+                    <ion-list>
+                        <ion-item>
+                            <ion-list padding *ngFor="let num of annexC">
+                                <ion-item>
                                     <ion-label>{{num}}</ion-label>
-                                  </ion-item>
-                                </ion-list>
-                              </ion-item>
-                    
-                          </ion-list>
+                                </ion-item>
+                            </ion-list>
+                        </ion-item>
+
+                    </ion-list>
+
+
+                    <ion-item>
+                        <h2>Anexo D</h2>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre"></ion-input>
+                        <ion-input type="text" [(ngModel)]="inicio" name="inicio" placeholder="Inicio"></ion-input>
+                        <ion-input type="text" [(ngModel)]="final" name="final" placeholder="Final"></ion-input>
+                        <ion-input type="text" [(ngModel)]="horario" name="horario" placeholder="Horario de aplicación"></ion-input>
+                    </ion-item>
+                    <ion-list>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col>
+                                    <div class="botones">
+                                        <ion-icon name="add" (click)="addAnnexD()" item-end></ion-icon>
+
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+                        <ion-item>
+                            <ion-list padding *ngFor="let num of showVariableD">
+
+                                <ion-label>{{num}}</ion-label>
 
                             </ion-list>
-                                              </ion-col>
-                </ion-row>
+                        </ion-item>
 
-                <ion-row>
-                    <ion-col class="signup-col">
-                        <button ion-button  class="boton" full type="submit" (click)="doReport()">Crear reporte</button>
+                    </ion-list>
 
-                    </ion-col>
-                </ion-row>     
-    </div> -->
-    </ion-content>
+                    
+
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="signup-col">
+                <button ion-button class="boton" full type="submit" (click)="doReport()">Crear reporte</button>
+
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>
