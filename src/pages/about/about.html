@@ -3,7 +3,7 @@
         <ion-row>
             <ion-col>
                 <ion-list inset>
-
+                    <H2 text-center>Investigación de Mercado</H2>
                     <ion-item>
                         <ion-input type="text" [(ngModel)]="title" placeholder="Titulo:" name="title"></ion-input>
                     </ion-item>
@@ -14,18 +14,20 @@
                     <ion-item>
                         <ion-input type="text" [(ngModel)]="by" placeholder="Preparado por:" name="by"></ion-input>
                     </ion-item>
-                    <ion-item>
-                        <h2>Contexto</h2>
-                    </ion-item>
+                    <br>
+                    <br>
+                    <br>
+                    <h2 text-center>Contexto</h2>
                     <ion-item>
                         <ion-textarea type="text" [(ngModel)]="problem" placeholder="Problema" name="problem"></ion-textarea>
                     </ion-item>
                     <ion-item>
                         <ion-textarea type="text" [(ngModel)]="object" placeholder="Objetivo" name="object"></ion-textarea>
                     </ion-item>
-                    <ion-item>
-                        <h2>Metodología</h2>
-                    </ion-item>
+                    <br>
+                    <br>
+                    <br>
+                    <h2 text-center>Metodología</h2>
                     <ion-item>
                         <ion-textarea type="text" [(ngModel)]="research" placeholder="Diseño de investigación" name="research"></ion-textarea>
                     </ion-item>
@@ -35,9 +37,12 @@
                     <ion-item>
                         <ion-textarea type="text" [(ngModel)]="instrumentation" placeholder="Diseño de instrumentación" name="instrumentation"></ion-textarea>
                     </ion-item>
-
+                    <br>
+                    <br>
+                    <br>
                     <ion-item>
                         <h2>Operacionalización de variables</h2>
+                        <ion-icon lass="botones" name="add" (click)="addAskOption()" item-end></ion-icon>
                     </ion-item>
                     <ion-item>
                         <ion-textarea type="text" [(ngModel)]="variable" name="variable" placeholder="Variable"></ion-textarea>
@@ -46,17 +51,6 @@
                         <ion-textarea type="number" [(ngModel)]="item" name="item" placeholder="Número de Item"></ion-textarea>
                     </ion-item>
                     <ion-list>
-                        <ion-grid>
-                            <ion-row>
-                                <ion-col>
-                                    <div class="botones">
-                                        <ion-icon name="add" (click)="addAskOption()" item-end></ion-icon>
-
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-                        </ion-grid>
-
                         <ion-item>
                             <ion-list padding *ngFor="let num of showVariable">
 
@@ -115,8 +109,9 @@
                     <ion-item>
                         <ion-textarea type="text" [(ngModel)]="conclusion" placeholder="Conclusiones y recomendaciones" name="conclusion"></ion-textarea>
                     </ion-item>
-
-
+                    <br>
+                    <br>
+                    <br>
                     <ion-item>
                         <h2>Anexo A</h2>
                     </ion-item>
@@ -137,7 +132,9 @@
                         </ion-item>
 
                     </ion-list>
-
+                    <br>
+                    <br>
+                    <br>
                     <ion-item>
                         <h2>Anexo B</h2>
                     </ion-item>
@@ -158,7 +155,9 @@
                         </ion-item>
 
                     </ion-list>
-
+                    <br>
+                    <br>
+                    <br>
                     <ion-item>
                         <h2>Anexo C</h2>
                     </ion-item>
@@ -179,10 +178,12 @@
                         </ion-item>
 
                     </ion-list>
-
-
+                    <br>
+                    <br>
+                    <br>
                     <ion-item>
                         <h2>Anexo D</h2>
+                        <ion-icon class="botones" name="add" (click)="addAnnexD()" item-end></ion-icon>
                     </ion-item>
                     <ion-item>
                         <ion-input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre"></ion-input>
@@ -191,17 +192,6 @@
                         <ion-textarea type="text" [(ngModel)]="horario" name="horario" placeholder="Horario de aplicación"></ion-textarea>
                     </ion-item>
                     <ion-list>
-                        <ion-grid>
-                            <ion-row>
-                                <ion-col>
-                                    <div class="botones">
-                                        <ion-icon name="add" (click)="addAnnexD()" item-end></ion-icon>
-
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-                        </ion-grid>
-
                         <ion-item>
                             <ion-list padding *ngFor="let num of showVariableD">
 
