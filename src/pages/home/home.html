@@ -1,5 +1,25 @@
   <!-- se saco de https://www.djamware.com/post/598953f880aca768e4d2b12b/creating-beautiful-charts-easily-using-ionic-3-and-angular-4-->
 <!-- Estatico-->
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      Graficas de resultados
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="contar()">
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
   <ion-content>
     <div style="display: block">
       <canvas baseChart
@@ -8,8 +28,4 @@
                   [chartType]="doughnutChartType">
       </canvas>
     </div>
-<!-- Dinamico-->
-
-
-
   </ion-content>
