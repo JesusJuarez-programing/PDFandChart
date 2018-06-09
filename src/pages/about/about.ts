@@ -12,12 +12,10 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class AboutPage {
   encuestaId: any;
   asks: any [] = [];
-  answer: any;
   askSliderCount: any;
   title: any;
   for: any;
   by: any;
-  graphic: any [] = [];
   annexA: any [] = [];
   annexB: any [] = [];
   annexC: any [] = [];
@@ -84,11 +82,11 @@ export class AboutPage {
 
         {text: 'Preparado por: ' + this.by, style: 'subheader'},
 
-        {text: '\nVictoria de Durango, ' + new Date().toDateString(), style: 'subheader'},
+        {text: '\nVictoria de Durango, ' + new Date().toDateString(), style: 'subheader', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCONTEXTO', style: 'subtitulo'},
+        {text: 'CONTEXTO', style: 'header2'},
 
         {text: 'Problema', style: 'subsubtitulo'},
 
@@ -98,7 +96,7 @@ export class AboutPage {
 
         {text: '' + this.object, style: 'text'},
 
-        {text: '\n\n\nMETODOLOGÍA', style: 'subtitulo'},
+        {text: '\n\n\nMETODOLOGÍA', style: 'header2'},
 
         {text: 'Diseño de Investigación', style: 'subsubtitulo'},
 
@@ -110,11 +108,11 @@ export class AboutPage {
 
         {text: '\n\nDiseño de Instrumentación', style: 'subsubtitulo'},
 
-        {text: '' + this.instrumentation, style: 'text'},
+        {text: '' + this.instrumentation, style: 'text', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOperacionalización de variables', style: 'subtitulo'},
+        {text: 'Operacionalización de variables', style: 'header2'},
 
         {
           style: 'tableExample',
@@ -139,73 +137,50 @@ export class AboutPage {
 
         {text: '\n\nPoblación y muestra', style: 'subsubtitulo'},
 
-        {text: '' + this.population, style: 'text'},
+        {text: '' + this.population, style: 'text', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDIAGNÓSTICO', style: 'subtitulo'},
+        {text: 'ANÁLISIS GENERAL', style: 'header2'},
 
-        {text: 'Tabulación y gráficas de datos', style: 'subsubtitulo'},
-
-        {text: '' + this.graphicc, style: 'text'},
+        {text: '' + this.analysisG, style: 'text', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: 'ANÁLISIS CRUZADO', style: 'header2'},
 
-
-
+        {text: '' + this.analysisC, style: 'text', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nANÁLISIS GENERAL', style: 'subtitulo'},
-
-        {text: '' + this.analysisG, style: 'text'},
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nANÁLISIS CRUZADO', style: 'subtitulo'},
-
-        {text: '' + this.analysisC, style: 'text'},
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCONCLUSIONES Y RECOMENDACIONES', style: 'subtitulo'},
+        {text: 'CONCLUSIONES Y RECOMENDACIONES', style: 'header2'},
 
         {text: '\n\nConclusiones y recomendaciones', style: 'subsubtitulo'},
 
-        {text: '' + this.conclusion, style: 'text'},
+        {text: '' + this.conclusion, style: 'text', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo A', style: 'subtitulo'},
+        {text: 'Anexo A', style: 'header2'},
 
         {text: '\n\nInstrumento de recolección de datos', style: 'subsubtitulo'},
 
-        {text: '' + this.annexA, style: 'text'},
+        {text: '' + this.annexA, style: 'text', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo B', style: 'subtitulo'},
+        {text: 'Anexo B', style: 'header2'},
 
         {text: '\n\nAGEBS de aplicación', style: 'subsubtitulo'},
 
-        {text: '' + this.annexB, style: 'text'},
+        {text: '' + this.annexB, style: 'text', pageBreak: 'after'},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////New Page//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo C', style: 'subtitulo'},
+        {text: 'Anexo C', style: 'header2'},
 
         {text: '\n\nAplicaciones de encuestas', style: 'subsubtitulo'},
 
-        {text: '' + this.annexC, style: 'text'},
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnexo D', style: 'subtitulo'},
-
-        {text: '\n\nFotos de los encuestadores', style: 'subsubtitulo'},
-
-        {text: '' + this.annexD, style: 'text'},  
         {
           style: 'tableExample',
           table: {
@@ -226,6 +201,17 @@ export class AboutPage {
         },
 
 
+        {text: '' + this.annexC, style: 'text', pageBreak: 'after'},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////New Page//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {text: 'Anexo D', style: 'header2'},
+
+        {text: '\n\nFotos de los encuestadores', style: 'subsubtitulo'},
+
+        {text: '' + this.annexD, style: 'text'},  
+        
+
 
 
       ],
@@ -234,6 +220,12 @@ export class AboutPage {
           fontSize: 19,
            bold: true,
            alignment: 'justify',
+           calibri: true
+        },
+        header2: {
+          fontSize: 19,
+           bold: true,
+           alignment: 'center',
            calibri: true
         },
         headers: {
@@ -279,7 +271,7 @@ export class AboutPage {
     if(this.title != null && this.for != null && this.by != null && this.title != null && this.problem != null &&
       this.object != null && this.research != null && this.information != null && this.instrumentation != null &&
       this.population != null && this.analysisC != null && this.analysisG != null && this.conclusion != null
-      && this.graphicc != null){
+     ){
         this.createPdf();
       }
     else{
@@ -306,16 +298,6 @@ export class AboutPage {
     this.finales.push(this.final);
     this.horarios.push(this.horario);
     }
-  }
-
-  addGraphic(){
-    this.graphic.push(this.answer);
-  }
-
-  deleteGraphic(){
-    if(this.graphic.length >= 1){
-      this.graphic.pop();
-    } 
   }
 
   addA(){

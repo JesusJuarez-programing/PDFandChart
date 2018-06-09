@@ -13,7 +13,7 @@ export class HomePage {
   valor: number [] = [300, 400, 50, 20];
 
   empresas: string [] = ['SpaceX', 'Tesla'];
-  val: number [] = [10, 10];
+  val: number [] = [10, 15];
 
   doughnutChartLabels: string [];
   doughnutChartData: number [];
@@ -29,26 +29,42 @@ export class HomePage {
     this.doughnutChartLabels = [];
       this.doughnutChartData =[];
     if (this.conta == 1){
+      this.doughnutChartLabels = [];
+      this.doughnutChartLabels = this.paises;
+      
+      this.doughnutChartData = this.valor;
+    }
+    if(this.conta == 2){
+      this.doughnutChartLabels = [];
       this.doughnutChartLabels = this.nombres;
       this.doughnutChartData = this.valores;
     }
-    if(this.conta == 2){
-      this.doughnutChartLabels = this.paises;
-      this.doughnutChartData = this.valor;
-    }
     if(this.conta == 3){
+      this.doughnutChartLabels = [];
       this.doughnutChartLabels = this.empresas;
-    this.doughnutChartData = this.val;
+      this.doughnutChartData = this.val;
     }
   }
 
-
-// Estatico
-
-
-
-
-// Dinamico
-
-
+  contarRegresar(){
+    this.conta --;
+    this.doughnutChartLabels = [];
+      this.doughnutChartData =[];
+    if (this.conta == 1){
+      this.doughnutChartLabels = [];
+      this.doughnutChartLabels = this.paises;
+      
+      this.doughnutChartData = this.valor;
+    }
+    if(this.conta == 2){
+      this.doughnutChartLabels = [];
+      this.doughnutChartLabels = this.nombres;
+      this.doughnutChartData = this.valores;
+    }
+    if(this.conta == 3){
+      this.doughnutChartLabels = [];
+      this.doughnutChartLabels = this.empresas;
+      this.doughnutChartData = this.val;
+    }
+  }
 }
