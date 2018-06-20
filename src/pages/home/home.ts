@@ -32,21 +32,17 @@ export class HomePage {
       this.doughnutChartData =[];
     if (this.conta == 1){
       this.pregunta = this.preguntas[this.conta];
-      console.log(this.pregunta);
-      this.doughnutChartLabels = [];
       this.doughnutChartLabels = this.paises;
       
       this.doughnutChartData = this.valor;
     }
     if(this.conta == 2){
       this.pregunta = this.preguntas[this.conta];
-      this.doughnutChartLabels = [];
       this.doughnutChartLabels = this.nombres;
       this.doughnutChartData = this.valores;
     }
     if(this.conta == 3){
       this.pregunta = this.preguntas[this.conta];
-      this.doughnutChartLabels = [];
       this.doughnutChartLabels = this.empresas;
       this.doughnutChartData = this.val;
     }
